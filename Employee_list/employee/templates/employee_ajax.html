@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid mt-3">
+    <table id="ajax_employee_table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Job Title</th>
+            <th>Date Started</th>
+            <th>Description</th>
+            <th>Photo</th>
+        </tr>
+    </table>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+$.ajax({
+               url: 'http://127.0.0.1:8000/employee/json',
+               type: 'GET',
+               processData: true,
+               dataType: 'json',
+               success: function(data) {
+                 var employee_data = '';
+                 $.each(data, function(key, value){
+                    employee_data +='<tr>';
+                    employee_data += '<td>' + value.id + '</td>';
+                    employee_data += '<td>' + value.first_name + '</td>';
+                    employee_data += '<td>' + value.last_name + '</td>';
+                    employee_data += '<td>' + value.job_title + '</td>';
+                    employee_data += '<td>' + value.employment_date + '</td>';
+                    employee_data += '<td>' + value.description + '</td>';
+                    employee_data += '<td>' + value.photo + '</td>';
+                    employee_data += '</tr>';
+                 });
+                 $('#ajax_employee_table').append(employee_data);
+                 }
+});
+
+
+</script>
+{% endblock %}

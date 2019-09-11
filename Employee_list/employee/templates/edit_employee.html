@@ -1,0 +1,15 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1>Edit Student</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Edit Employee Details:</legend>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Update">
+        </fieldset>
+    </form>
+</div>
+{% endblock content %}

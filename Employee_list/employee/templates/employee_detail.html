@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid d-flex justify-content-center mt-1">
+    <div class="media">
+        {% if employee.photo %}
+        <img alt="" src="{{ employee.photo.url }}"/>
+        {% else %}
+            <img src="{% static 'employee/images/default.png' %}" alt="" />
+        {% endif %}
+        <div class="media-body pl-2">
+            <p>Name: {{ employee.first_name }}</p>
+            <p>Surname: {{ employee.last_name }}</p>
+            <p>Date Started: {{ employee.employment_date }}</p>
+            <p>Description: {{ employee.description }}</p>
+            <p><a href="{% url 'employee:edit_employee' employee.pk %}">Edit Employee</a></p>
+            <p><a href="{% url 'employee:delete_employee' employee.pk %}">Delete Employee</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

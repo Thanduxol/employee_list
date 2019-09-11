@@ -1,0 +1,50 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #DDDDDD;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #DDDDDD;
+}
+
+ body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+}
+
+ .navbar a, .nav-right a {
+    color: #D2691E;
+    text-decoration: none;
+}
+
+ .nav-left {
+    margin-right: auto;
+}
+
+ .nav-right {
+    display: flex;
+ }
+
+ .edit_employee {
+    color: green;
+ }
+
+ .delete_employee {
+    color: red;
+ }
+
+ .media img {
+   height: 300px;
+ }
+
+ .index-image {
+     background: url("../employee/images//home.jpg") no-repeat center;
+     background-size: cover;
+    height: 100%;
+ }
